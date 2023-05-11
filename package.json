@@ -1,0 +1,27 @@
+{
+  "name": "flux-fmerge",
+  "version": "1.0.0",
+  "description": "Good way for merging text files",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron . ./origin.js",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "debug-pack": "electron-builder build --dir",
+    "release-pack": "electron-builder build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Cantro93/HX",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^24.3.0",
+    "electron-builder": "^23.6.0",
+    "yarn": "^1.22.19"
+  },
+  "build": {
+    "win": {
+      "target": "portable"
+    }
+  }
+}
