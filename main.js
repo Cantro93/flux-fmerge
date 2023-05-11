@@ -14,7 +14,7 @@ function merge(file) {
 			fl = fl.replaceAll(merger, merge(path.join(path.dirname(file), q)));
 		}
 		}
-		fl = fl.replace(/(\$target\(".*"\);)/g, '').replace(/(\r\n){2,}/g, '');
+		fl = fl.replace(/(\$target\(".*"\);)/g, '').replace(/(\r\n){3,}/g, '');
 		for (let targ of targarr) {
 			let tval = targ.replace(/(\$target\(")/g, '').replace(/("\);)/g, '');
 			tvarr[tvarr.length] = tval;
