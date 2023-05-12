@@ -1,10 +1,10 @@
 {
   "name": "flux-fmerge",
   "version": "1.0.0",
-  "description": "Good way for merging text files",
+  "description": "HX Flux FMerge",
   "main": "main.js",
   "scripts": {
-    "test": "electron . ./origin.js",
+    "test": "electron .",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
@@ -21,7 +21,8 @@
   },
   "build": {
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "icon.ico"
     }
   }
 }
