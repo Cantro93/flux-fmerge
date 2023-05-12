@@ -11,7 +11,6 @@ function merge(file) {
 		for (let merger of mergers) {
 			q = merger.replace(/(\$merge\(")/g, '').replace(/("\);)/g, '');
 			let r = eval(`/(\\$merge\\("${q}"\\);)/g`);
-			console.log(r);
 			fl = fl.replaceAll(r, merge(path.join(path.dirname(file), q)).content);
 		}
 	};
