@@ -4,7 +4,7 @@ This is a project which aims to help automate/simplify workflow by automatically
 ## Usage
 calling (after adding it to the PATH (on Windows) )
 ```
-flux.fmerge.exe <file>
+flux-fmerge <file>
 ```
 > NOTE: There is also a possibility to drop file over the executable.
 
