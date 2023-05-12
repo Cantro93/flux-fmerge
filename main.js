@@ -28,16 +28,16 @@ function merge(file) {
 	else return {content: fl};
 }
 app.whenReady().then(() => {
-	let a = ((process.argv[0] == 'electron') ? 0 : 1);
-	console.log(`Running HX Flux FMerge on the following file ${process.argv[1 + a]}`);
-	let targets = merge(process.argv[1 + a]).targets;
+	let a;
+	console.log(`Running HX Flux FMerge on the following file ${process.argv[1]}`);
+	let targets = merge(process.argv[1]).targets;
     console.log('Work ended');
 	let list = '';
 	for (let target of targets) {
 		list += (target + '\r\n');
 	}
 	dialog.showMessageBoxSync({
-		message: `File '${process.argv[1 + a]}'\r\nwas successfully generated and exported to following locations:\r\n${list}`,
+		message: `File '${process.argv[1]}'\r\nwas successfully generated and exported to following locations:\r\n${list}`,
 		type: 'none',
 		buttons: ['OK'],
 		title: 'HX Flux FMerge'
