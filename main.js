@@ -28,8 +28,8 @@ function merge(file) {
 }
 app.whenReady().then(() => {
 	let a;
-	console.log(`Running HX Flux FMerge on the following file: ${process.argv[2]}`);
-	let targets = merge(process.argv[2]).targets;
+	console.log(`Running HX Flux FMerge on the following file: ${process.argv[1]}`);
+	let targets = merge(process.argv[1]).targets;
     console.log('Work ended');
 	let list = '';
 	for (let target of targets) {
