@@ -1,6 +1,6 @@
 {
   "name": "flux-fmerge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "HX Flux FMerge",
   "main": "main.js",
   "scripts": {
