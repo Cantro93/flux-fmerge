@@ -3,16 +3,16 @@ const fs = require('fs');
 const path = require('path');
 function merge(file) {
 	let fl = fs.readFileSync(file).toString();
-	let mergers = [...fl.matchAll(/(\$merge\(".*"\);)/g)];
+	let mergers = fl.match(/(\$merge\(".*"\);)/g);
 	let q = '';
 	let targarr = [], tvarr = [], fp = [];
 	targarr = fl.match(/(\$target\(".*"\);)/g);
-	if (mergers.length > 0) {
-		if (mergers[0].length > 0) {
-		for (let merger of mergers[0]) {
+	if (mergers != null) {
+		for (let merger of mergers) {
 			q = merger.replace(/(\$merge\(")/g, '').replace(/("\);)/g, '');
-			fl = fl.replaceAll(merger, merge(path.join(path.dirname(file), q)).content);
-		}
+			let r = eval(`/(\\$merge\\("${q}"\\);)/g`);
+			console.log(r);
+			fl = fl.replaceAll(r, merge(path.join(path.dirname(file), q)).content);
 		}
 	};
 	if (targarr != null) {
@@ -29,18 +29,18 @@ function merge(file) {
 }
 app.whenReady().then(() => {
 	let a;
-	console.log(`Running HX Flux FMerge on the following file ${process.argv[1]}`);
-	let targets = merge(process.argv[1]).targets;
+	console.log(`Running HX Flux FMerge on the following file: ${process.argv[2]}`);
+	let targets = merge(process.argv[2]).targets;
     console.log('Work ended');
 	let list = '';
 	for (let target of targets) {
 		list += (target + '\r\n');
 	}
 	dialog.showMessageBoxSync({
-		message: `File '${process.argv[1]}'\r\nwas successfully generated and exported to following locations:\r\n${list}`,
+		message: `File '${process.argv[2]}'\r\nhas been successfully generated and exported to following locations:\r\n${list}`,
 		type: 'none',
 		buttons: ['OK'],
 		title: 'HX Flux FMerge'
 	});
-	app.exit(0);
+	app.quit(0);
 });
